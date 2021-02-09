@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns=""
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" id="PersonDetails">
+	<xs:element name="PersonDetails">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="globalData" type="globalData" minOccurs="1" maxOccurs="1" nillable="true"/>
+				<xs:element name="metaData" type="metaData" maxOccurs="1" nillable="true"/>
+				<xs:element name="formData" type="formData" maxOccurs="1" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="globalData">
+		<xs:sequence>
+			<xs:element name="data" type="xs:string" nillable="false"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="metaData">
+		<xs:sequence>
+			<xs:element name="templateId" type="xs:string" nillable="true"/>
+			<xs:element name="watermark" type="xs:string" nillable="true"/>
+			<xs:element name="language" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="formData">
+		<xs:sequence>
+			<xs:element name="applicantInformation" type="applicantInformation" minOccurs="0" maxOccurs="5000" />
+			<xs:element name="contactInformation" type="contactInformation" maxOccurs="5000" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="applicantInformation">
+		<xs:sequence>
+			<xs:element name="demographicDetails" type="demographicDetails"/>
+			<xs:element name="physicalAddress" type="physicalAddress"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="demographicDetails">
+		<xs:sequence>
+			<xs:element name="firstName" type="xs:string"/>
+			<xs:element name="middleInitial" type="xs:string"/>
+			<xs:element name="lastName" type="xs:string"/>
+			<xs:element name="suffix" type="xs:string"/>
+			<xs:element name="dateOfBirth" type="xs:string"/>
+			<xs:element name="gender" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="physicalAddress">
+		<xs:sequence>
+			<xs:element name="addressLine1" type="xs:string"/>
+			<xs:element name="addressLine2" type="xs:string"/>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="state" type="xs:string"/>
+			<xs:element name="zip" type="xs:string"/>
+			<xs:element name="county" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="contactInformation">
+		<xs:sequence>
+			<xs:element name="emailAddress" type="emailAddress" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="emailAddress">
+		<xs:sequence>
+			<xs:element name="emailAddress" type="xs:string" nillable="true"/>
+			<xs:element name="cellPhone" type="xs:string" nillable="true"/>
+			<xs:element name="homePhone" type="xs:string" nillable="true"/>
+			<xs:element name="workPhone" type="xs:string" />
+			<xs:element name="preferredPhoneType" type="xs:string" nillable="true"/>
+			<xs:element name="language" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
