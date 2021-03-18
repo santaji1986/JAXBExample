@@ -2,8 +2,8 @@ for java version older than java version 11
 
 > 
 cd <ProjectDir>\src\main\java>  
-xjc -p org.san.xsddemo ..\resources\PersonDetails.xsd
-xjc ..\resources\PersonDetails.xsd
+xjc -no-header -p org.san.xsddemo ..\resources\PersonDetails.xsd
+xjc -no-header ..\resources\PersonDetails.xsd
 xjc  ..\resources\RefferalXMLSchema.xsd
 xjc  -wsdl ..\resources\students.wsdl
 
